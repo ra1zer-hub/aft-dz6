@@ -13,13 +13,13 @@ import static ru.appline.framework.entities.ListProducts.clearProducts;
 public class PagesManager {
 
     private static PagesManager pagesManager;
-    private static Map<String, BasePage> map = new HashMap<>();
+    private static Map<String, BasePage> basePageMap = new HashMap<>();
 
     private PagesManager() {
     }
 
     public static void pagesIsNull() {
-        map.clear();
+        basePageMap.clear();
         clearProducts();
     }
 
@@ -31,23 +31,23 @@ public class PagesManager {
     }
 
     public StartPage getStartPage() {
-        if (map.isEmpty() || map.get(StartPage.NAMEPAGE) == null) {
-            map.put(StartPage.NAMEPAGE, new StartPage());
+        if (basePageMap.isEmpty() || basePageMap.get(StartPage.NAMEPAGE) == null) {
+            basePageMap.put(StartPage.NAMEPAGE, new StartPage());
         }
-        return (StartPage) map.get(StartPage.NAMEPAGE);
+        return (StartPage) basePageMap.get(StartPage.NAMEPAGE);
     }
 
     public SearchResultsPage getSearchResultsPage() {
-        if (map.isEmpty() || map.get(SearchResultsPage.NAMEPAGE) == null) {
-            map.put(SearchResultsPage.NAMEPAGE, new SearchResultsPage());
+        if (basePageMap.isEmpty() || basePageMap.get(SearchResultsPage.NAMEPAGE) == null) {
+            basePageMap.put(SearchResultsPage.NAMEPAGE, new SearchResultsPage());
         }
-        return (SearchResultsPage) map.get(SearchResultsPage.NAMEPAGE);
+        return (SearchResultsPage) basePageMap.get(SearchResultsPage.NAMEPAGE);
     }
 
     public CartPages getCartPages() {
-        if (map.isEmpty() || map.get(CartPages.NAMEPAGE) == null) {
-            map.put(CartPages.NAMEPAGE, new CartPages());
+        if (basePageMap.isEmpty() || basePageMap.get(CartPages.NAMEPAGE) == null) {
+            basePageMap.put(CartPages.NAMEPAGE, new CartPages());
         }
-        return (CartPages) map.get(CartPages.NAMEPAGE);
+        return (CartPages) basePageMap.get(CartPages.NAMEPAGE);
     }
 }
